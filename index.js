@@ -1,3 +1,6 @@
+console.log("TOKEN RAW:", JSON.stringify(process.env.BOT_TOKEN));
+console.log("TOKEN LENGTH:", process.env.BOT_TOKEN?.length);
+
 const { Client, GatewayIntentBits } = require('discord.js');
 require('dotenv').config();
 
