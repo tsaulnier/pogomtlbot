@@ -2,6 +2,19 @@ const { Client, GatewayIntentBits } = require('discord.js');
 require('dotenv').config();
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const db = new sqlite3.Database('/data/stats.db');
+
+db.serialize(() => {
+    db.run(`
+        CREATE TABLE IF NOT EXISTS users (
+            user_id TEXT PRIMARY KEY,
+            username TEXT,
+            team TEXT,
+            total_points INTEGER DEFAULT 0
+        )
+    `);
+    // Add other tables here
+});
 
 client.once('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
