@@ -1,5 +1,6 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 require('dotenv').config();
+const sqlite3 = require('sqlite3').verbose();
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 const db = new sqlite3.Database('/data/stats.db');
