@@ -25,3 +25,6 @@ primary_region = 'iad'
 [mounts]
   source = "data"
   destination = "/data"
+
+[processes]
+  app = "node index.js"
